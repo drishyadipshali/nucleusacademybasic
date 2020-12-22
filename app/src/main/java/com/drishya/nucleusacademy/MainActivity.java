@@ -39,19 +39,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Toolbar tbar;
     DrawerLayout drawer;
-    String st[], st2[];
+    String[] st;
+    String[] st2;
     private static final String ONESIGNAL_APP_ID = "b34d3f75-0566-4bf0-938f-0b5097f3101c";
     Switch aSwitch;
-    int img[] = {R.drawable.paint, R.drawable.msword, R.drawable.excel, R.drawable.pnt,
+    int[] img = {R.drawable.paint, R.drawable.msword, R.drawable.excel, R.drawable.pnt,
             R.drawable.courses};
-    ;
     RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE);
         OneSignal.initWithContext(MainActivity.this);
         OneSignal.setAppId(ONESIGNAL_APP_ID);
@@ -85,17 +84,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         }*/
-aSwitch = (Switch) findViewById(R.id.switch1);
-      aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-           if(b==true)
-           {
-               lantern.enableTorchMode(true);
-           }
-           else if(b==false)
-           {
-               lantern.enableTorchMode(false);
+        aSwitch = findViewById(R.id.switch1);
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    lantern.enableTorchMode(true);
+                } else if (b == false) {
+                    lantern.enableTorchMode(false);
            }
           }
       });
@@ -104,7 +100,7 @@ aSwitch = (Switch) findViewById(R.id.switch1);
 
         //above code to troch on
 
-        navigationView = (NavigationView) findViewById(R.id.nview);
+        navigationView = findViewById(R.id.nview);
 
 
 
@@ -114,7 +110,7 @@ aSwitch = (Switch) findViewById(R.id.switch1);
 
         //above code is for asign string from string.xml
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycle);
+        recyclerView = findViewById(R.id.recycle);
         // recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         courseAdapter courseAdapter = new courseAdapter(this, st, st2, img, this);
@@ -124,10 +120,10 @@ aSwitch = (Switch) findViewById(R.id.switch1);
 
         //above code is for recyclerview
 
-        tbar = (Toolbar) findViewById(R.id.tbar);
+        tbar = findViewById(R.id.tbar);
         setSupportActionBar(tbar);
         navigationView.setNavigationItemSelectedListener(this);
-        drawer = (DrawerLayout) findViewById(R.id.drawlayout);
+        drawer = findViewById(R.id.drawlayout);
         ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(MainActivity.this,
                 drawer, tbar, R.string.open_navigation_menu
                 , R.string.close_navigation_menu);
@@ -171,7 +167,7 @@ aSwitch = (Switch) findViewById(R.id.switch1);
             String share = api.sourceDir;
             Intent shareintent = new Intent(Intent.ACTION_SEND);
             shareintent.setType("text/plain");
-            shareintent.putExtra(shareintent.EXTRA_STREAM, Uri.fromFile(new File(share)));
+            shareintent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(share)));
             startActivity(Intent.createChooser(shareintent, "Share With"));
         } else if (id == R.id.Terms) {
             checkConnectionForNav();
