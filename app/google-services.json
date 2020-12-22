@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "255781869600",
+    "project_id": "nucleusacademy-8aef4",
+    "storage_bucket": "nucleusacademy-8aef4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255781869600:android:c8737b18ea46190c234445",
+        "android_client_info": {
+          "package_name": "com.drishya.nucleusacademy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "255781869600-83fnlrcijus6vrel62042um9aidudo6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUcHV5apIT4759hZ1X2NqFX16ZgiZuqJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "255781869600-83fnlrcijus6vrel62042um9aidudo6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
